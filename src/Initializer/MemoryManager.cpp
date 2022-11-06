@@ -408,7 +408,7 @@ void seissol::initializers::MemoryManager::touchBuffersDerivatives( Layer& layer
     if (buffer != NULL) {
       for (unsigned dof = 0; dof < tensor::Q::size(); ++dof) {
           // zero time integration buffers
-          buffer[dof] = (real) 0;
+          //buffer[dof] = (real) 0;
       }
     }
 
@@ -416,7 +416,7 @@ void seissol::initializers::MemoryManager::touchBuffersDerivatives( Layer& layer
     real* derivative = derivatives[cell];
     if (derivative != NULL) {
       for (unsigned dof = 0; dof < yateto::computeFamilySize<tensor::dQ>(); ++dof ) {
-        derivative[dof] = (real) 0;
+        //derivative[dof] = (real) 0;
       }
     }
   }

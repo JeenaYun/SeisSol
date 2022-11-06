@@ -106,13 +106,13 @@ real EnergyOutput::computeStaticWork(const real* degreesOfFreedomPlus,
   krnl.Q = degreesOfFreedomPlus;
   krnl.TinvT = godunovData.TinvT;
   krnl._prefetch.QInterpolated = QInterpolatedPlus;
-  krnl.execute(faceInfo.plusSide, 0);
+  //krnl.execute(faceInfo.plusSide, 0);
 
   krnl.QInterpolated = QInterpolatedMinus;
   krnl.Q = degreesOfFreedomMinus;
   krnl.TinvT = godunovData.TinvT;
   krnl._prefetch.QInterpolated = QInterpolatedMinus;
-  krnl.execute(faceInfo.minusSide, faceInfo.faceRelation);
+  //krnl.execute(faceInfo.minusSide, faceInfo.faceRelation);
 
   dynamicRupture::kernel::computeTractionInterpolated trKrnl;
   trKrnl.tractionPlusMatrix = godunovData.tractionPlusMatrix;
@@ -120,7 +120,7 @@ real EnergyOutput::computeStaticWork(const real* degreesOfFreedomPlus,
   trKrnl.QInterpolatedPlus = QInterpolatedPlus;
   trKrnl.QInterpolatedMinus = QInterpolatedMinus;
   trKrnl.tractionInterpolated = tractionInterpolated;
-  trKrnl.execute();
+  //trKrnl.execute();
 
   real staticFrictionalWork = 0.0;
   dynamicRupture::kernel::accumulateFrictionalEnergy feKrnl;
